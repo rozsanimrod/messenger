@@ -1,7 +1,7 @@
-#Messenger
-##Features
+# Messenger
+## Features
 * User administration (sign-in, signup)
-* Home
+* Home 
 * Friends list
 * User to user communication
 * Messaging rooms
