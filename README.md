@@ -1,7 +1,8 @@
 #Messenger
 
 ##Features
-*user administration (sign-in, signup)
-*homepage
-*user to user communication
-*messaging rooms
+**User administration (sign-in, signup)**
+**Home**
+**Friends list**
+**User to user communication**
+**Messaging rooms**
