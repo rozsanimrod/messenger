@@ -1,0 +1,20 @@
+{% block body %}
+    <h1>Homepage</h1>
+
+    {% if user.is_authenticated %}
+        <h3>Username: {{ user.username }}</h3>
+        <p>Welcome to the homepage!</p>
+        <a href="{% url 'logout' %}">Logout</a>
+
+    {% else %}
+        <p>You are not authenticated, please login!</p>
+
+        <a href="{% url 'login' %}"><button>Login!</button></a>
+        <p>or</p>
+        <a href="{% url 'signup' %}"><button>Signup!</button></a>
+        <h4>Forgot your password?</h4>
+        <a href="{% url 'password_reset' %}"><button>Click me!</button></a>
+
+    {% endif %}
+
+{% endblock %}

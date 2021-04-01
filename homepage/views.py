@@ -1,6 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.views.generic import TemplateView
 
 
-def homepage(request):
-    return HttpResponse("You have logged in!")
+class Home(TemplateView):
+    template_name = 'homepage/home.html'
+
+
+
+
+
