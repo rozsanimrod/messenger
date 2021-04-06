@@ -10,9 +10,7 @@
     * picture(not implemented)
     * email
     * age  
-* Friends list(not implemented)
+* Friends list
     * list of people you know
-* User to user communication(not implemented)
-    * private messaging with a person
-* Messaging rooms(not implemented)
-    * messaging with up to 10 people
+* Messaging room
+    * messaging with other users
