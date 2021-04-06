@@ -6,7 +6,7 @@
 * recover password
 #### Home
 * User details
-    * name, 
+    * name 
     * picture(not implemented)
     * email
     * age  

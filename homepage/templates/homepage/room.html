@@ -1,0 +1,22 @@
+<a href="{% url 'homepage:home' %}"><button>Home</button></a>
+
+{% for message in messages %}
+<p>{{ message.user }}: {{ message.text }}</p>
+{% endfor %}
+<form action="{% url 'homepage:message' room.id %}" method="post">
+    {% csrf_token %}
+    <label for="message_input">type:</label>
+    <input type="text" name="message" id="message_input">
+    <input type="submit" value="Send">
+</form>
+
+<h3>User list(if you want to chat with someone else):</h3>
+    <ul>
+        {% for result in object_list %}
+            <li><a href="{% url 'homepage:detail' result.id  %}">{{ result }}</a></li>
+            <form action="{% url 'homepage:create_room' %}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{ result.id }}" name="user2">
+                <button type="submit">Chat</button></form>
+                {% endfor %}
+            </ul>

@@ -3,7 +3,17 @@
 
     {% if user.is_authenticated %}
         <h3>Username: {{ user.username }}</h3>
-        <p>Welcome to the homepage!</p>
+        <p>Welcome to the messenger app!</p>
+        <h2>User list: </h2>
+            <ul>
+                {% for result in object_list %}
+                    <li><a href="{% url 'homepage:detail' result.id  %}">{{ result }}</a> </li>
+                    <form action="{% url 'homepage:create_room' %}" method="post">
+                    {% csrf_token %}
+                        <input type="hidden" value="{{ result.id }}" name="user2">
+                        <button type="submit">Chat</button></form>
+                {% endfor %}
+            </ul>
         <a href="{% url 'logout' %}">Logout</a>
 
     {% else %}
