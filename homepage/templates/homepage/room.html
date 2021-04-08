@@ -12,11 +12,11 @@
 
 <h3>User list(if you want to chat with someone else):</h3>
     <ul>
-        {% for result in object_list %}
-            <li><a href="{% url 'homepage:detail' result.id  %}">{{ result }}</a></li>
+        {% for user in users %}
+            <li><a href="{% url 'homepage:detail' user.id  %}">{{ user.username }}</a> </li>
             <form action="{% url 'homepage:create_room' %}" method="post">
                 {% csrf_token %}
-                <input type="hidden" value="{{ result.id }}" name="user2">
+                <input type="hidden" value="{{ user.id }}" name="user2">
                 <button type="submit">Chat</button></form>
-                {% endfor %}
-            </ul>
+        {% endfor %}
+    </ul>

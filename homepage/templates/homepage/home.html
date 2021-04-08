@@ -15,6 +15,8 @@
                 {% endfor %}
             </ul>
         <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'password_change' %}">Change password</a>
+
 
     {% else %}
         <p>You are not authenticated, please login!</p>

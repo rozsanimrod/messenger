@@ -47,15 +47,20 @@ class RoomView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(RoomView, self).get_context_data(**kwargs)
         context['messages'] = Message.objects.filter(room=self.object)
+        context['users'] = User.objects.all()
 
         return context
 
 
-
 class Detail(DetailView):
     template_name = 'homepage/detail.html'
-    model = UserProfile
+    model = User
     context_object_name = 'user_object'
 
+    def get_context_data(self, **kwargs):
+        context = super(Detail, self).get_context_data(**kwargs)
+        context['users'] = User.objects.all()
+
+        return context
 
 
