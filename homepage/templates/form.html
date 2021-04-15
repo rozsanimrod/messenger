@@ -1,5 +1,17 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Login">
+{% include 'base.html' %}
+
+<form  action="" method="post">
+    <div class="mb-md-1  row">
+        {% csrf_token %}
+        <li class="form-control">{{ form.as_p }}</li>
+        <input  class="btn btn-secondary btn-sm" type="submit" value="Login" >
+
+    </div>
+    <div class="row">
+        <div class="col-md-8 mx-auto social-container my-2 order-md-">
+        <button class="btn btn-primary  ">
+             <a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a>
+        </button>
+        </div>
+    </div>
 </form>

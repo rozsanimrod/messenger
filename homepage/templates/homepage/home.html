@@ -1,32 +1,55 @@
+{% include 'base.html' %}
+<body>
 {% block body %}
-    <h1>Homepage</h1>
 
     {% if user.is_authenticated %}
-        <h3>Username: {{ user.username }}</h3>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
+            <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
+            <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
+            <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
+            <a></a>
+        </div>
+
+<h1>Homepage</h1>
+        <div></div>
         <p>Welcome to the messenger app!</p>
-        <h2>User list: </h2>
+        <h6>A few instructions</h6>
+        <ul >
+            <li><p>You can access the user details by clicking on the blue bars!</p></li>
+            <li><p>You can chat with someone by clicking on the grey button under the blue bars! </p></li>
+
+
+
+        </ul>
+
+
+    <article>
+        <h5>User list: </h5>
             <ul>
                 {% for result in object_list %}
-                    <li><a href="{% url 'homepage:detail' result.id  %}">{{ result }}</a> </li>
-                    <form action="{% url 'homepage:create_room' %}" method="post">
+                    <li class="list-group " >
+                        <a href="{% url 'homepage:detail' result.id  %}"
+                           class="list-group-item list-group-item-action active" aria-current="true">{{ result }}</a>
+                        <form action="{% url 'homepage:create_room' %}" method="post">
                     {% csrf_token %}
                         <input type="hidden" value="{{ result.id }}" name="user2">
-                        <button type="submit">Chat</button></form>
+                        <button class="btn btn-secondary btn-sm" type="submit">Chat</button></form>
+                    </li>
+
                 {% endfor %}
             </ul>
-        <a href="{% url 'logout' %}">Logout</a>
-        <a href="{% url 'password_change' %}">Change password</a>
-
+    </article>
 
     {% else %}
-        <p>You are not authenticated, please login!</p>
+        <li class="form-control">
+        <h4>You are not authenticated, please login!</h4>
 
-        <a href="{% url 'login' %}"><button>Login!</button></a>
-        <p>or</p>
-        <a href="{% url 'signup' %}"><button>Signup!</button></a>
-        <h4>Forgot your password?</h4>
-        <a href="{% url 'password_reset' %}"><button>Click me!</button></a>
-
+        <a href="{% url 'login' %}"><button class="btn btn-secondary btn-sm">Login!</button></a>
+        <a style="align-content: center">or</a>
+        <a href="{% url 'signup' %}"><button class="btn btn-secondary btn-sm">Signup!</button></a>
+        <a href="{% url 'password_reset' %}"><button class="btn btn-secondary btn-sm">if you forgot your password CLICK ME!</button></a>
+        </li>
     {% endif %}
-
+</body>
 {% endblock %}
