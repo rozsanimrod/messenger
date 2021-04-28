@@ -81,8 +81,8 @@ WSGI_APPLICATION = 'messenger_app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
 
+DATABASES = {
 }
 
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
@@ -149,3 +149,11 @@ SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+    'fields': 'id, name , email'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+    ('username', 'name'),
+    ('email', 'email')
+]
