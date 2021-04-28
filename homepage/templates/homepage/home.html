@@ -20,37 +20,37 @@
                 </div>
             </div>
         </div>
-<h1>Homepage</h1>
-        <div></div>
-        <p>Welcome to the messenger app!</p>
-        <h6>A few instructions</h6>
-        <ul >
-            <li><p>You can access the user details by clicking on the blue bars!</p></li>
-            <li><p>You can chat with someone by clicking on the grey button under the blue bars! </p></li>
+
+        <div class="container my-container">
+            <div class="row ">
+                <h5>User list: </h5>
+                    <ul>
+                        {% for result in object_list %}
+                         <li class="list-group " >
+                            <a href="{% url 'homepage:detail' result.id  %}"
+                                class="list-group-item list-group-item-action active" aria-current="true">{{ result }}</a>
+                            <form action="{% url 'homepage:create_room' %}" method="post">
+                        {% csrf_token %}
+                            <input type="hidden" value="{{ result.id }}" name="user2">
+                            <button class="btn btn-secondary btn-sm" type="submit">Chat</button></form>
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            </div>
 
 
+            <div class="row">
+                <h1>Homepage</h1>
+                <p>Welcome to the messenger app!</p>
+                <h6>A few instructions</h6>
+                <ul >
+                    <li><p>You can access the user details by clicking on the blue bars!</p></li>
+                    <li><p>You can chat with someone by clicking on the grey button under the blue bars! </p></li>
 
-        </ul>
-
-
-    <div class="container my-container">
-    <div class="row">
-        <h5>User list: </h5>
-            <ul>
-                {% for result in object_list %}
-                    <li class="list-group " >
-                        <a href="{% url 'homepage:detail' result.id  %}"
-                           class="list-group-item list-group-item-action active" aria-current="true">{{ result }}</a>
-                        <form action="{% url 'homepage:create_room' %}" method="post">
-                    {% csrf_token %}
-                        <input type="hidden" value="{{ result.id }}" name="user2">
-                        <button class="btn btn-secondary btn-sm" type="submit">Chat</button></form>
-                    </li>
-
-                {% endfor %}
-            </ul>
-    </div>
-    </div>
+                </ul>
+            </div>
+        </div>
 
     {% else %}
         <li class="form-control">
