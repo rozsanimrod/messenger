@@ -1,35 +1,18 @@
 {%  include 'base.html' %}
 
 
-<body>
-<div class="btn-group" role="group" aria-label="Basic example">
-        <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
-        <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
-        <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
-        <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
+<div class="container my-container">
+    <div class="row">
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
+            <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
+            <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
+            <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
+        </div>
     </div>
-
-
-<article>
-        <ul class="list-inline">
-            <li >
-                <h2>User details!</h2>
-                <h5>Username: {{ object.username }}</h5>
-                <h5>Name: {{ object.first_name }} {{ object.last_name }}</h5>
-                <h5>Age: {{ object.userprofile.age }}</h5>
-                <h5>Email: {{ object.email }}</h5>
-                <h5>userid: {{ object.id }}</h5>
-            </li>
-        </ul>
-<form action="{% url 'homepage:create_room' %}" method="post">
-                    {% csrf_token %}
-                        <input type="hidden" value="{{ user_object.id }}" name="user2">
-                        <button type="submit" class="btn btn-secondary">Chat with this user</button></form>
-
-</article>
-
-<article>
-<h4>User list: </h4>
+    <div class="row">
+        <div class="col-4">
+            <h4>User list: </h4>
 
             <ul>
                 {% for user in users %}
@@ -44,5 +27,26 @@
                     </li>
                 {% endfor %}
             </ul>
-</article>
-</body>
+        </div>
+
+
+        <div class="col-8">
+            <ul class="list-inline">
+                <li >
+                    <h2>User details!</h2>
+                    <h5>Username: {{ object.username }}</h5>
+                    <h5>Name: {{ object.first_name }} {{ object.last_name }}</h5>
+                    <h5>Age: {{ object.userprofile.age }}</h5>
+                    <h5>Email: {{ object.email }}</h5>
+                    <h5>userid: {{ object.id }}</h5>
+                </li>
+            </ul>
+        <form action="{% url 'homepage:create_room' %}" method="post">
+                    {% csrf_token %}
+                        <input type="hidden" value="{{ user_object.id }}" name="user2">
+                        <button type="submit" class="btn btn-secondary">Chat with this user</button></form>
+
+        </div>
+    </div>
+
+</div>
