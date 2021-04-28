@@ -3,14 +3,23 @@
 {% block body %}
 
     {% if user.is_authenticated %}
-        <div class="btn-group" role="group" aria-label="Basic example">
-            <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
-            <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
-            <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
-            <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
-            <a></a>
-        </div>
+    <style>
+        .my-container {
+            border: 2px solid dodgerblue;
+        }
+    </style>
 
+        <div class="container my-container">
+        <div class="row my-row">
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
+                <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
+                <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
+                <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
+
+            </div>
+        </div>
+        </div>
 <h1>Homepage</h1>
         <div></div>
         <p>Welcome to the messenger app!</p>
