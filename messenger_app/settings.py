@@ -149,11 +149,11 @@ SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
 SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
 SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]
-SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id, username , email'
-}
-SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
-    ('username', 'name'),
-    ('email', 'email')
-]
+# SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]
+# SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+#     'fields': 'id, username , email'
+# }
+# SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+#     ('username', 'name'),
+#     ('email', 'email')
+# ]
