@@ -3,8 +3,21 @@
 
 <body>
 
+    <style>
+            .my-row { background: #0d6efc;
+                 border-radius: 15px 15px 1px 1px;
+            }
+
+            .col_1 { background: #87ade5;
+            }
+
+            .col_2 { background: #cacccd;
+            }
+
+    </style>
+
     <div class="container my-container">
-        <div class="row ny-row">
+        <div class="row my-row">
             <div class="btn-group" role="group" aria-label="Basic example">
             <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
             <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
@@ -32,7 +45,7 @@
         </div>
 
 
-        <div class="col-8 column-message">
+        <div class="col-8 col_2">
             <h5>Messages:</h5>
             {% for message in messages %}
                 <p class="form-control">{{ message.user }}: {{ message.text }}</p>
