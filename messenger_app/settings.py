@@ -151,7 +151,7 @@ SOCIAL_AUTH_REDIRECT_IS_HTTPS = True
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email', ]
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
-    'fields': 'id, name , email'
+    'fields': 'id, username , email'
 }
 SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
     ('username', 'name'),
