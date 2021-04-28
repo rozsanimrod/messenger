@@ -12,9 +12,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-4">
-        
-            <ul>
+        <div class="col-4 col_1">
+
+
             <h5>User list: </h5>
                 {% for user in users %}
                     <li class="list-group">
@@ -27,12 +27,12 @@
                         <button class="btn btn-secondary btn-sm" type="submit">Chat</button></form>
                     </li>
                 {% endfor %}
-            </ul>
+
         </div>
 
 
         <div class="col-8">
-            <ul class="list-inline">
+            <ul class="list-group">
                 <li >
                     <h1>User details!</h1>
                     <h5>Username: {{ object.username }}</h5>
