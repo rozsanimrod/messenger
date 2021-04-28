@@ -20,8 +20,9 @@
         <div class="container my-container">
             <div class="row ">
             <div class="col-4 col_1" >
-                <h5>User list: </h5>
+                
                     <ul>
+                    <h5>User list: </h5>
                         {% for result in object_list %}
                          <li class="list-group " >
                             <a href="{% url 'homepage:detail' result.id  %}"
