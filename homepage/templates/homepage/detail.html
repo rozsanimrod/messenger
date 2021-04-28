@@ -13,9 +13,9 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <h5>User list: </h5>
-
+        
             <ul>
+            <h5>User list: </h5>
                 {% for user in users %}
                     <li class="list-group">
                         <a href="{% url 'homepage:detail' user.id  %}"
