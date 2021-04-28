@@ -13,7 +13,7 @@
     </div>
     <div class="row">
         <div class="col-4">
-            <h4>User list: </h4>
+            <h5>User list: </h5>
 
             <ul>
                 {% for user in users %}
@@ -34,7 +34,7 @@
         <div class="col-8">
             <ul class="list-inline">
                 <li >
-                    <h2>User details!</h2>
+                    <h1>User details!</h1>
                     <h5>Username: {{ object.username }}</h5>
                     <h5>Name: {{ object.first_name }} {{ object.last_name }}</h5>
                     <h5>Age: {{ object.userprofile.age }}</h5>
