@@ -17,7 +17,7 @@
         <div class="col-4">
 
 
-                <h4>User list:</h4>
+                <h5>User list:</h5>
                     {% for user in users %}
                         <li class="list-group">
                             <a href="{% url 'homepage:detail' user.id  %}"
@@ -30,16 +30,21 @@
                     {% endfor %}
 
         </div>
+        <div class="row">
+            <h4></h4>
+        </div>
+
 
         <div class="col-8 column-message">
             {% for message in messages %}
-            <p class="form-control">{{ message.user }}: {{ message.text }}</p>
+                <p class="form-control">{{ message.user }}: {{ message.text }}</p>
             {% endfor %}
+
             <form class="form-control colo" action="{% url 'homepage:message' room.id %}" method="post">
                 {% csrf_token %}
-             <label for="message_input">type:</label>
-            <input type="text" name="message" id="message_input">
-            <input type="submit" value="Send">
+                <label for="message_input">type:</label>
+                <input type="text" name="message" id="message_input">
+                <input type="submit" value="Send">
             </form>
 
         </div>
