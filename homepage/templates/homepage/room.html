@@ -30,12 +30,10 @@
                     {% endfor %}
 
         </div>
-        <div class="row">
-            <h4></h4>
-        </div>
 
 
         <div class="col-8 column-message">
+            <h5>Messages:</h5>
             {% for message in messages %}
                 <p class="form-control">{{ message.user }}: {{ message.text }}</p>
             {% endfor %}
