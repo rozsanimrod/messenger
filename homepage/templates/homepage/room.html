@@ -3,41 +3,48 @@
 
 <body>
 
-<a>
-  <div class="btn-group" role="group" aria-label="Basic example">
-        <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
-        <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
-        <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
-        <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
-    </div>
-</a>
-<article>
-{% for message in messages %}
-<p class="form-control">{{ message.user }}: {{ message.text }}</p>
-{% endfor %}
-<form class="form-control colo" action="{% url 'homepage:message' room.id %}" method="post">
-    {% csrf_token %}
-    <label for="message_input">type:</label>
-    <input type="text" name="message" id="message_input">
-    <input type="submit" value="Send">
-</form>
+    <div class="container my-container">
+        <div class="row ny-row">
+            <div class="btn-group" role="group" aria-label="Basic example">
+            <a href="{% url 'homepage:home' %}"><button type="button" class="btn btn-primary">Home</button></a>
+            <a href="{% url 'password_change' %}"><button type="button" class="btn btn-primary" >Change Password</button></a>
+            <a><button type="button" class="btn btn-secondary" disabled>Username: {{ user.username }} </button></a>
+            <a href="{% url 'logout' %}"><button type="button" class="btn small btn-danger">Logout</button></a>
+            </div>
+        </div>
 
-</article>
+        <div class="row">
+        <div class="col-4">
 
+                <ul>
+                <h4>User list:</h4>
+                    {% for user in users %}
+                        <li class="list-group">
+                            <a href="{% url 'homepage:detail' user.id  %}"
+                                class="list-group-item list-group-item-action active">{{ user.username }}</a>
+                        <form action="{% url 'homepage:create_room' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{ user.id }}" name="user2">
+                            <button class="btn btn-secondary btn-sm" type="submit">Chat</button></form>
+                        </li>
+                    {% endfor %}
+                </ul>
+        </div>
 
-<article>
-<h4>User list:</h4>
-    <ul>
-        {% for user in users %}
-            <li class="list-group">
-                <a href="{% url 'homepage:detail' user.id  %}"
-                    class="list-group-item list-group-item-action active">{{ user.username }}</a>
-                <form action="{% url 'homepage:create_room' %}" method="post">
+        <div class="col-8">
+            {% for message in messages %}
+            <p class="form-control">{{ message.user }}: {{ message.text }}</p>
+            {% endfor %}
+            <form class="form-control colo" action="{% url 'homepage:message' room.id %}" method="post">
                 {% csrf_token %}
-                <input type="hidden" value="{{ user.id }}" name="user2">
-                <button class="btn btn-secondary btn-sm" type="submit">Chat</button></form>
-            </li>
-        {% endfor %}
-    </ul>
-</article>
+             <label for="message_input">type:</label>
+            <input type="text" name="message" id="message_input">
+            <input type="submit" value="Send">
+            </form>
+
+        </div>
+        </div>
+
+
+    </div>
 </body>
